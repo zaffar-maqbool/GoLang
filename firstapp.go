@@ -5,8 +5,9 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello bro")
-	fmt.Println("Started my golang earlier but didnt learn much")
-	var greetingText string = "welcome guys"
-	fmt.Println(greetingText)
+	var Firstname string = "Zaffar"
+	var Lastname = "Maqbool"
+	sex := "Male"
+	age := 22
+	fmt.Println(Firstname, Lastname, sex, age)
 }
