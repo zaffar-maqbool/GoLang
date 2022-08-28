@@ -1,21 +1,19 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/zaffar-maqbool/Golang/calci/info"
 )
 
-var reader = bufio.NewReader(os.Stdin)
-
 func main() {
-	fmt.Println("This is a basic BMI calculator")
+	fmt.Println(info.MainTitle)
 
-	fmt.Print("Please enter yours weight in KG: ")
+	fmt.Print(info.WeightPrompt)
 	weightInput, _ := reader.ReadString('\n')
-	fmt.Print("Please Enter Your Hight in M ")
+	fmt.Print(info.HeightPrompt)
 	heightInput, _ := reader.ReadString('\n')
 
 	// fmt.Print(weightInput)
