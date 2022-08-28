@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 
-	"github.com/zaffar-maqbool/Golang/greet"
+	"github.com/zaffar-maqbool/Golang/under/greet"
 )
 
 var Firstname string = "Zaffar "
 
 func main() {
-	fmt.Println(greet.Greeting)
+	fmt.Println("greet", greet.Greeting)
+	fmt.Println("constant ", pi)
 	var Lastname = "Maqbool"
 	fullname := Firstname + Lastname
 	Fullname := fmt.Sprintf("%v %v", Firstname, Lastname)
