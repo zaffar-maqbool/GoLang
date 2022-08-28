@@ -9,8 +9,9 @@ func main() {
 	var Lastname = "Maqbool"
 	sex := "Male"
 	age := 22
-	dob := "03-03-2000"
+	dob := "03.03.2000"
 	currentYear := 2022
 	email := "aalimwani94@gmail.com"
 	fmt.Println(Firstname, Lastname, sex, age, dob, currentYear, email)
+	fmt.Println("hello amit sir")
 }
