@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/zaffar-maqbool/Golang/under/greet"
+	"github.com/zaffar-maqbool/Golang/basics/greet"
 )
 
 var Firstname string = "Zaffar "
