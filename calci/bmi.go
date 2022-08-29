@@ -2,17 +2,17 @@ package main
 
 import (
 	"github.com/zaffar-maqbool/Golang/calci/info"
-	"github.com/zaffar-maqbool/Golang/calci/inputoutput"
+	. "github.com/zaffar-maqbool/Golang/calci/inputoutput"
 )
 
-func calculateBmi(weight float64, height float64) float64 {
+func CalculateBmi(weight float64, height float64) float64 {
 	return weight / (height * height)
 }
 
 func main() {
 	info.PrintWelcome()
 	weight, height := GetUserMetrics()
-	bmi := calculateBmi(weight, height)
+	bmi := CalculateBmi(weight, height)
 	PrintBMI(bmi)
 }
 
