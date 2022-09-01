@@ -12,4 +12,9 @@ func main() {
 	fmt.Println("Please input your age ")
 	userInput, _ := reader.ReadString('\n')
 	userAge, _ := strconv.ParseInt(userAgeinput, 0, 64)
+
+	if userAge > 18 {
+
+	}
+
 }
