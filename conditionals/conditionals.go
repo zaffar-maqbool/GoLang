@@ -13,7 +13,8 @@ func main() {
 	userInput, _ := reader.ReadString('\n')
 	userAge, _ := strconv.ParseInt(userInput, 0, 64)
 
-	if userAge >= 18 {
+	isOldEnough := userAge <= 18
+	if isOldEnough {
 		fmt.Println("Welcome to club")
 	} else {
 		fmt.Println("Sorry YU Cant join")
