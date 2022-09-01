@@ -13,10 +13,12 @@ func main() {
 
 	userAge := 30
 	//isOldEnough := userAge >= 18
-	if userAge >= 30 {
+	if userAge >= 30 && userAge < 50 || userAge >= 60 {
 		fmt.Println("Welcome to club")
 	} else if userAge >= 18 {
 		fmt.Print("Welcome")
+	} else if userAge > 50 {
+		fmt.Println("old")
 	} else {
 		fmt.Println("Sorry YU Cant join")
 	}
