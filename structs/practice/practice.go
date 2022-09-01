@@ -17,6 +17,19 @@ type Product struct {
 func NewProduct(ID string, T string, D string, P float64) *Product {
 	return &Product{ID, T, D, P}
 }
+func (prod *Product) store() {
+	file, _ := os.Create(prod.id + ".txt")
+
+	content := fmt.Sprintf(
+		"ID: %v\n Title: %v\n Description: %v \n Price: USD %.2f\n",
+		prod.id,
+		prod.title,
+		prod.description,
+		prod.price,
+	)
+	file.WriteString(content)
+	file.Close()
+}
 
 func (prod *Product) printData() {
 	fmt.Printf(" ID: %v ", prod.id)
@@ -47,6 +60,7 @@ func getProduct() *Product {
 func main() {
 	createdPoduct := getProduct()
 	createdPoduct.printData()
+	createdPoduct.store()
 }
 
 // firstProduct := Product{
