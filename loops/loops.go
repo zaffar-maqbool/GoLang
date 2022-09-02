@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -17,6 +18,7 @@ func getUserChoice() (string, error) {
 	fmt.Println("3) sum uo manually entered numbers")
 	fmt.Println("4) sum up a list of entered numbers")
 
+	fmt.Print("Please make your choice: ")
 	userInput, err := reader.ReadString('\n')
 
 	if err != nil {
@@ -34,6 +36,16 @@ func getUserChoice() (string, error) {
 
 }
 func calSumUpToNumber() {
+	chosenNum, err := getInputNumber()
+	if err != nil {
+		fmt.Println("Invalid number input")
+		return
+	}
+	fmt.Println(chosenNum)
+	//                 i = i + 1
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+	}
 
 }
 func calFactorial() {
@@ -45,6 +57,21 @@ func calSumManually() {
 func calListSum() {
 
 }
+func getInputNumber() (int, error) {
+	inputNum, err := reader.ReadString('\n')
+	if err != nil {
+		return 0, err
+	}
+
+	inputNum = strings.Replace(inputNum, "\r\n", "", -1)
+	chosenNum, err := strconv.ParseInt(inputNum, 0, 64)
+	if err != nil {
+
+		return 0, err
+	}
+	return int(chosenNum), nil
+}
+
 func main() {
 	selectedChoice, err := getUserChoice()
 
