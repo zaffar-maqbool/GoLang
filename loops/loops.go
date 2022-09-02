@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"runtime"
 	"strconv"
 	"strings"
 )
@@ -12,11 +13,11 @@ import (
 var reader = bufio.NewReader(os.Stdin)
 
 func getUserChoice() (string, error) {
-	fmt.Println("please make yur choice")
-	fmt.Println("1) Add upp all the numbers of to number X")
+	fmt.Println("Please make your choice")
+	fmt.Println("1) Add up all the numbers of to number X")
 	fmt.Println("2) Build the factorial up to number X")
-	fmt.Println("3) sum uo manually entered numbers")
-	fmt.Println("4) sum up a list of entered numbers")
+	fmt.Println("3) Sum up manually entered numbers")
+	fmt.Println("4) Sum up a list of entered numbers")
 
 	fmt.Print("Please make your choice: ")
 	userInput, err := reader.ReadString('\n')
@@ -24,7 +25,13 @@ func getUserChoice() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	userInput = strings.Replace(userInput, "\n ", " ", -1)
+
+	if runtime.GOOS == "windows" {
+		userInput = strings.Replace(userInput, "\r\n", "", -1)
+	} else {
+		userInput = strings.Replace(userInput, "\n", "", -1)
+	}
+
 	if userInput == "1" ||
 		userInput == "2" ||
 		userInput == "3" ||
@@ -33,19 +40,23 @@ func getUserChoice() (string, error) {
 	} else {
 		return "", errors.New("INVALID INPUT")
 	}
-
 }
 func calSumUpToNumber() {
+	fmt.Println("Plese enter your number: ")
 	chosenNum, err := getInputNumber()
+
 	if err != nil {
 		fmt.Println("Invalid number input")
 		return
 	}
+
 	fmt.Println(chosenNum)
+	sum := 0
 	//                 i = i + 1
-	for i := 0; i < 5; i++ {
-		fmt.Println(i)
+	for i := 1; i <= chosenNum; i++ {
+		sum = sum + i
 	}
+	fmt.Printf("Result is %v ", sum)
 
 }
 func calFactorial() {
@@ -57,19 +68,26 @@ func calSumManually() {
 func calListSum() {
 
 }
+
 func getInputNumber() (int, error) {
-	inputNum, err := reader.ReadString('\n')
+	inputNumber, err := reader.ReadString('\n')
+
 	if err != nil {
 		return 0, err
 	}
 
-	inputNum = strings.Replace(inputNum, "\r\n", "", -1)
-	chosenNum, err := strconv.ParseInt(inputNum, 0, 64)
-	if err != nil {
+	if runtime.GOOS == "windows" {
+		inputNumber = strings.Replace(inputNumber, "\r\n", "", -1)
+	} else {
+		inputNumber = strings.Replace(inputNumber, "\n", "", -1)
+	}
+	chosenNumber, err := strconv.ParseInt(inputNumber, 0, 64)
 
+	if err != nil {
 		return 0, err
 	}
-	return int(chosenNum), nil
+
+	return int(chosenNumber), nil
 }
 
 func main() {
