@@ -16,6 +16,7 @@ func main() {
 	fmt.Println(err)
 	if err != nil {
 		fmt.Println("invalid input")
+		return
 	}
 	//userAge := 30
 	//isOldEnough := userAge >= 18
