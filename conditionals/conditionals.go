@@ -5,14 +5,22 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
-func main() {
-
+func getUserAge() (int, error) {
 	reader := bufio.NewReader(os.Stdin)
+
 	fmt.Println("Please input your age ")
 	userInput, _ := reader.ReadString('\n')
+	userInput = strings.Replace(userInput, "\n", "", -1)
 	userAge, err := strconv.ParseInt(userInput, 0, 64)
+
+	return int(userAge), err
+}
+
+func main() {
+	userAge, err := getUserAge()
 	fmt.Println(err)
 	if err != nil {
 		fmt.Println("invalid input")
