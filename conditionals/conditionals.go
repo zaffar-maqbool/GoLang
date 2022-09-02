@@ -13,7 +13,7 @@ func getUserAge() (int, error) {
 
 	fmt.Println("Please input your age ")
 	userInput, _ := reader.ReadString('\n')
-	userInput = strings.Replace(userInput, "\n", "", -1)
+	userInput = strings.Replace(userInput, "\r\n", "", -1)
 	userAge, err := strconv.ParseInt(userInput, 0, 64)
 
 	return int(userAge), err
@@ -28,11 +28,11 @@ func main() {
 	}
 	//userAge := 30
 	//isOldEnough := userAge >= 18
-	if userAge >= 30 && userAge < 50 || userAge >= 60 {
+	if userAge >= 30 && userAge < 50 {
 		fmt.Println("Welcome to club")
-	} else if userAge >= 18 {
+	} else if userAge >= 18 && userAge <= 29 {
 		fmt.Print("Welcome")
-	} else if userAge > 50 {
+	} else if userAge >= 50 {
 		fmt.Println("old")
 	} else {
 		fmt.Println("Sorry YU Cant join")
