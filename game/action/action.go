@@ -9,12 +9,12 @@ var randSource = rand.NewSource(time.Now().UnixNano())
 
 var randGenerate = rand.New(randSource)
 
-var currentMonsterHealth = 100
-var currentPlayerHealth = 100
+var currentMonsterHealth = MONSTER_HEALTH
+var currentPlayerHealth = PLAYER_HEALTH
 
 func AttackMonster(isSpecialAttackAvailable bool) {
-	minAttack := 5
-	maxAttack := 10
+	minAttack := PLAYER_ATTACK_MIN_DMG
+	maxAttack := PLAYER_ATTACK_MIN_DMG
 
 	if isSpecialAttackAvailable {
 		minAttack = 10
@@ -25,6 +25,16 @@ func AttackMonster(isSpecialAttackAvailable bool) {
 	//currentMonsterHealth = currentMonsterHealth - dmgValue
 	currentMonsterHealth -= dmgValue
 
+}
+
+func AttackPlayer() {
+	minAttack := 9
+	maxAttack := 13
+
+	dmgValue := generateRandBetween(minAttack, maxAttack)
+
+	//currentMonsterHealth = currentMonsterHealth - dmgValue
+	currentPlayerHealth -= dmgValue
 }
 
 func HealPlayer() {
@@ -41,15 +51,6 @@ func HealPlayer() {
 	currentPlayerHealth += healValue
 }
 
-func AttackPlayer() {
-	minAttack := 9
-	maxAttack := 13
-
-	dmgValue := generateRandBetween(minAttack, maxAttack)
-
-	//currentMonsterHealth = currentMonsterHealth - dmgValue
-	currentPlayerHealth -= dmgValue
-}
 func generateRandBetween(min int, max int) int {
 	return randGenerate.Intn(max-min) + min
 }
