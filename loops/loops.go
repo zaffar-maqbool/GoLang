@@ -60,10 +60,34 @@ func calSumUpToNumber() {
 
 }
 func calFactorial() {
+	fmt.Println("Plese enter your number: ")
+	chosenNum, err := getInputNumber()
 
+	if err != nil {
+		fmt.Println("Invalid number input")
+		return
+	}
+
+	factorial := 1
+	//                 i = i + 1
+	for i := 1; i <= chosenNum; i++ {
+		factorial = factorial * i
+	}
+	fmt.Printf("Result is %v ", factorial)
 }
 func calSumManually() {
+	isEnteringNumbers := true
+	sum := 0
 
+	fmt.Println("Please enter numbers the program will quite once yu enter any other value")
+
+	for isEnteringNumbers {
+		chosenNum, err := getInputNumber()
+		sum = sum + chosenNum
+
+		isEnteringNumbers = err == nil
+	}
+	fmt.Printf("Result is : %v\n", sum)
 }
 func calListSum() {
 
