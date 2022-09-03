@@ -6,9 +6,7 @@ import (
 )
 
 var randSource = rand.NewSource(time.Now().UnixNano())
-
 var randGenerate = rand.New(randSource)
-
 var currentMonsterHealth = MONSTER_HEALTH
 var currentPlayerHealth = PLAYER_HEALTH
 
@@ -41,7 +39,8 @@ func AttackPlayer() int {
 func HealPlayer() int {
 
 	healValue := generateRandBetween(PLAYER_HEAL_MIN_VALUE, PLAYER_HEAL_MAX_VALUE)
-	healDiff := 100 - currentPlayerHealth
+	healDiff := PLAYER_HEALTH - currentPlayerHealth
+
 	if healDiff >= healValue {
 		currentPlayerHealth += healValue
 		return healValue
