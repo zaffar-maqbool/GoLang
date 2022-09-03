@@ -1,5 +1,5 @@
 package interactions
 
-func GetPlayerChoice() {
+func GetPlayerChoice(isSpecialAttackAvailable bool) {
 
 }
