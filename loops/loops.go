@@ -108,6 +108,7 @@ func calListSum() {
 		number, _ := strconv.ParseInt(value, 0, 64)
 		sum = sum + int(number)
 	}
+	fmt.Printf("Result: %v \n", sum)
 }
 
 func getInputNumber() (int, error) {
