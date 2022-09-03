@@ -17,23 +17,29 @@ func executeRound() string {
 	interactions.ShowAvailableActions(isSpecialRound)
 	userChoice := interactions.GetPlayerChoice(isSpecialRound)
 
-	var playerHealth int
-	var monsterHealth int
+	var playerAttackDmg int
+	var playerHealValue int
+	var monsterAttackDmg int
+
 	if userChoice == "1" {
-		action.AttackMonster(false)
+		playerAttackDmg = action.AttackMonster(false)
 	} else if userChoice == "2" {
-		action.HealPlayer()
+		playerHealValue = action.HealPlayer()
 	} else {
-		action.AttackMonster(true)
+		monsterAttackDmg = action.AttackMonster(true)
 
 	}
 	action.AttackPlayer()
-	playerHealth, monsterHealth = action.GetHealth()
+	playerHealth, monsterHealth := action.GetHealth()
 	roundData := interactions.RoundData{
-		Action:        userChoice,
-		PlayerHealth:  playerHealth,
-		MonsterHealth: monsterHealth,
+		Action:           userChoice,
+		PlayerHealth:     playerHealth,
+		MonsterHealth:    monsterHealth,
+		PlayerAttackDmg:  playerAttackDmg,
+		PlayerHealValue:  playerHealValue,
+		MonsterAttackDmg: monsterAttackDmg,
 	}
+	interactions.PrintRoundStatstics(&roundData)
 
 	if playerHealth <= 0 {
 		return "Monster"
