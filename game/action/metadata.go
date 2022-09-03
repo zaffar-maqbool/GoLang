@@ -1,0 +1,7 @@
+package action
+
+const PLAYER_HEALTH = 100
+const MONSTER_HEALTH = 100
+
+const PLAYER_ATTACK_MIN_DMG = 5
+const PLAYER_ATTACK_MAX_DMG = 10
