@@ -18,3 +18,8 @@ func ShowAvailableActions(isSpecialAttackAvailable bool) {
 		fmt.Println("3: Special Attack ")
 	}
 }
+
+func DeclareWinner(winner string) {
+	fmt.Println("GAME OVER")
+	fmt.Printf("%v Won!\n", winner)
+}
