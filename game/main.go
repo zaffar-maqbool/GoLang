@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/zaffar-maqbool/Golang/game/interactions"
 )
 
@@ -17,7 +15,15 @@ func executeRound() string {
 	//to know wheather speacial attack can be used
 	interactions.ShowAvailableActions(isSpecialRound)
 	userChoice := interactions.GetPlayerChoice(isSpecialRound)
-	fmt.Println(userChoice)
+
+	if userChoice == "1" {
+		return "ATTACK"
+	} else if userChoice == "2" {
+		return "HEAL"
+	} else {
+
+	}
+
 	return ""
 
 }
