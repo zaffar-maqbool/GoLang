@@ -15,8 +15,9 @@ func executeRound() string {
 	currentRound++
 	isSpecialRound := currentRound%3 == 0
 	//to know wheather speacial attack can be used
-
+	interactions.ShowAvailableActions(isSpecialRound)
 	fmt.Println("")
+
 }
 func endGame() {
 

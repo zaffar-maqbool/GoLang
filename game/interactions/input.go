@@ -1,0 +1,5 @@
+package interactions
+
+func GetPlayerChoice() {
+
+}
