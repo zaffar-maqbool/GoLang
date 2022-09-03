@@ -27,7 +27,9 @@ func executeRound() string {
 		action.AttackMonster(true)
 
 	}
-	playerHealth, monsterHealth = action.AttackPlayer()
+	action.AttackPlayer()
+	playerHealth, monsterHealth = action.GetHealth()
+
 	if playerHealth <= 0 {
 		return "Monster"
 
