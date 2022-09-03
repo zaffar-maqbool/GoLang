@@ -106,9 +106,14 @@ func calListSum() {
 	for index, value := range inputNumbers {
 		fmt.Printf("index; %v , VAlue: %v \n ", index, value)
 		number, _ := strconv.ParseInt(value, 0, 64)
+
+		if err != nil {
+			continue
+		}
 		sum = sum + int(number)
 	}
 	fmt.Printf("Result: %v \n", sum)
+
 }
 
 func getInputNumber() (int, error) {
