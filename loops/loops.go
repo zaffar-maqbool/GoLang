@@ -90,7 +90,24 @@ func calSumManually() {
 	fmt.Printf("Result is : %v\n", sum)
 }
 func calListSum() {
-
+	fmt.Println("Please enter a , seperated numbers")
+	inputNumberList, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Invalid Input")
+		return
+	}
+	if runtime.GOOS == "windows" {
+		inputNumberList = strings.Replace(inputNumberList, "\r\n", "", -1)
+	} else {
+		inputNumberList = strings.Replace(inputNumberList, "\n", "", -1)
+	}
+	inputNumbers := strings.Split(inputNumberList, ",")
+	sum := 0
+	for index, value := range inputNumbers {
+		fmt.Printf("index; %v , VAlue: %v \n ", index, value)
+		number, _ := strconv.ParseInt(value, 0, 64)
+		sum = sum + int(number)
+	}
 }
 
 func getInputNumber() (int, error) {
