@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/zaffar-maqbool/Golang/game/action"
 	"github.com/zaffar-maqbool/Golang/game/interactions"
 )
 
@@ -16,14 +17,23 @@ func executeRound() string {
 	interactions.ShowAvailableActions(isSpecialRound)
 	userChoice := interactions.GetPlayerChoice(isSpecialRound)
 
+	var playerHealth int
+	var monsterHealth int
 	if userChoice == "1" {
-		return "ATTACK"
+		action.AttackMonster(false)
 	} else if userChoice == "2" {
-		return "HEAL"
+		action.HealPlayer()
 	} else {
+		action.AttackMonster(true)
 
 	}
+	playerHealth, monsterHealth = action.AttackPlayer()
+	if playerHealth <= 0 {
+		return "Monster"
 
+	} else if monsterHealth <= 0 {
+		return "Player"
+	}
 	return ""
 
 }
