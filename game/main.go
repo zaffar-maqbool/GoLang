@@ -29,6 +29,11 @@ func executeRound() string {
 	}
 	action.AttackPlayer()
 	playerHealth, monsterHealth = action.GetHealth()
+	roundData := interactions.RoundData{
+		Action:        userChoice,
+		PlayerHealth:  playerHealth,
+		MonsterHealth: monsterHealth,
+	}
 
 	if playerHealth <= 0 {
 		return "Monster"
