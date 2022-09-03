@@ -125,7 +125,7 @@ func main() {
 		calSumUpToNumber()
 	} else if selectedChoice == "2" {
 		calFactorial()
-	} else if selectedChoice == "4" {
+	} else if selectedChoice == "3" {
 		calSumManually()
 	} else {
 		calListSum()
