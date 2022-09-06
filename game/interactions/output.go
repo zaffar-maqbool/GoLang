@@ -46,3 +46,7 @@ func DeclareWinner(winner string) {
 	fmt.Println("GAME OVER")
 	fmt.Printf("%v Won!\n", winner)
 }
+
+func WriteLogFile() {
+
+}
