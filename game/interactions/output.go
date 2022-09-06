@@ -47,6 +47,6 @@ func DeclareWinner(winner string) {
 	fmt.Printf("%v Won!\n", winner)
 }
 
-func WriteLogFile() {
+func WriteLogFile(rounds *[]RoundData) {
 
 }
