@@ -50,5 +50,28 @@ func DeclareWinner(winner string) {
 
 func WriteLogFile(rounds *[]RoundData) {
 	file, err := os.Create("gameLog.txt")
-	if err !=
+	if err != nil {
+		fmt.Println("Saving a log file failed.Exiting")
+		return
+	}
+	for i, value := range *rounds {
+		logEntry := map[string]string{
+			"Round":                 fmt.Sprint(i + 1),
+			"Action":                value.Action,
+			"Player Attack Damage":  fmt.Sprint(value.PlayerAttackDmg),
+			"Player Heal Value":     fmt.Sprint(value.PlayerHealValue),
+			"Monster Attack Damage": fmt.Sprint(value.MonsterAttackDmg),
+			"Player Health ":        fmt.Sprint(value.PlayerHealth),
+			"Monster Health ":       fmt.Sprint(value.MonsterHealth),
+		}
+		logLine := fmt.Sprintln(logEntry)
+		_, err = file.WriteString(logLine)
+
+		if err != nil {
+			fmt.Println("Writing log file failed . Exiting ")
+			continue
+		}
+	}
+	file.Close()
+	fmt.Println("Writing Log Data Successfull ")
 }
