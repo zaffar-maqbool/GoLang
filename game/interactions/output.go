@@ -2,6 +2,7 @@ package interactions
 
 import (
 	"fmt"
+	"os"
 )
 
 type RoundData struct {
@@ -48,5 +49,6 @@ func DeclareWinner(winner string) {
 }
 
 func WriteLogFile(rounds *[]RoundData) {
-
+	file, err := os.Create("gameLog.txt")
+	if err !=
 }
