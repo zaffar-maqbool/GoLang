@@ -26,19 +26,6 @@ func (number customNumber) pow(power int) customNumber {
 
 // main
 func call() {
-	//hobbies := []string{"Cook", "Code"}
-	hobbies := make([]string, 2, 10)
-	hobbies[1] = "CODE"
-	hobbies[0] = "COOK"
-	hobbies = append(hobbies, "LEARN", "TEACH")
-	fmt.Println(hobbies)
-
-	// aMap := make(map[string]int, 2)
-
-	moreHobbies := new([]string)
-	fmt.Println(moreHobbies)
-	*moreHobbies = append(*moreHobbies, "WORK")
-	fmt.Println(*moreHobbies)
 
 	var people []person = []person{
 		{"Max", 32},
