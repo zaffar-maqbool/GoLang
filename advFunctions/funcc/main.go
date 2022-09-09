@@ -1,4 +1,4 @@
-package funcc
+package main
 
 import "fmt"
 

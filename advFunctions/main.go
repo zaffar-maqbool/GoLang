@@ -2,39 +2,14 @@ package main
 
 import "fmt"
 
-type transformFn func(int) int
-
-// type anotherFn func(int, []string, map[string][]int) ([]int, string)
-
 func main() {
-	numbers := []int{1, 2, 3, 4}
-
-	double := createTransformer(2)
-	triple := createTransformer(4)
-
-	transformed := transformNumbers(&numbers, func(number int) int {
-		return number * 2
-	})
-	doubled := transformNumbers(&numbers, double)
-	tripled := transformNumbers(&numbers, triple)
-
-	fmt.Println(transformed)
-	fmt.Println(doubled)
-	fmt.Println(tripled)
+	factorialNum := factorial(5)
+	fmt.Println(factorialNum)
 }
-
-func transformNumbers(numbers *[]int, transform transformFn) []int {
-	dNumbers := []int{}
-
-	for _, val := range *numbers {
-		dNumbers = append(dNumbers, transform(val))
+func factorial(number int) int {
+	result := 1
+	for i := 1; i <= number; i++ {
+		result = result * i
 	}
-
-	return dNumbers
-}
-func createTransformer(factor int) func(int) int {
-	return func(number int) int {
-		return number * factor
-	}
-
+	return result
 }
